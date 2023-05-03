@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { FaArrowLeft } from "react-icons/fa";
+import { AiFillLike } from "react-icons/ai";
 
 const ChefCards = ({ chefs }) => {
   //   const { chef_name, chef_img, years_of_experience, number_of_recipes, likes } =
@@ -30,7 +31,8 @@ const ChefCards = ({ chefs }) => {
                   <br />
                   Number of Recipes: {chef.number_of_recipes}
                   <br />
-                  Likes: {chef.likes}
+                  Likes: {chef.likes}{" "}
+                  <AiFillLike className="text-primary"></AiFillLike>
                 </Card.Text>
                 <Button variant="info">
                   <FaArrowLeft></FaArrowLeft> view recipes

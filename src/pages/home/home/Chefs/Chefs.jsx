@@ -11,7 +11,9 @@ const Chefs = () => {
   }, []);
   return (
     <Container className="my-5">
-      <h4>here are chefs</h4>
+      <h4 className="fw-bold fs-2 p-2 text-secondary text-center mb-4">
+        Cuisine <span className="text-info">Magicians</span>
+      </h4>
       {/* {chefs.map((chef) => (
         <ChefCards key={chef.id} chef={chef}></ChefCards>
       ))} */}
