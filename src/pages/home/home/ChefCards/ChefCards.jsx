@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { FaArrowLeft } from "react-icons/fa";
 import { AiFillLike } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const ChefCards = ({ chefs }) => {
   //   const { chef_name, chef_img, years_of_experience, number_of_recipes, likes } =
@@ -34,9 +35,11 @@ const ChefCards = ({ chefs }) => {
                   Likes: {chef.likes}{" "}
                   <AiFillLike className="text-primary"></AiFillLike>
                 </Card.Text>
-                <Button variant="info">
-                  <FaArrowLeft></FaArrowLeft> view recipes
-                </Button>
+                <Link to={`/${chef.id}`}>
+                  <Button variant="info">
+                    <FaArrowLeft></FaArrowLeft> view recipes
+                  </Button>
+                </Link>
               </Card.Body>
             </Card>
           </Col>
