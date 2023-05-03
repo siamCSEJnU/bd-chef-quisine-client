@@ -5,20 +5,17 @@ import { FaGithub, FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
-  const { GithubSignIn, GoogleSignIn, user, setUser } = useContext(AuthContext);
+  const {
+    GithubSignIn,
+    GoogleSignIn,
+    user,
+    setUser,
+    error,
+    setError,
+    ManualSignIn,
+  } = useContext(AuthContext);
 
   const handleGoogleSignIn = () => {
-    GithubSignIn()
-      .then((result) => {
-        const loggedUser = result.user;
-        console.log(loggedUser);
-        setUser(loggedUser);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-  const handleGithubSignIn = () => {
     GoogleSignIn()
       .then((result) => {
         const loggedUser = result.user;
@@ -29,11 +26,39 @@ const Login = () => {
         console.log(error);
       });
   };
+  const handleGithubSignIn = () => {
+    GithubSignIn()
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        setUser(loggedUser);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const handleManualLogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    ManualSignIn(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        setUser(result.user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+        setError(error.message);
+      });
+  };
 
   return (
     <Container className="mx-auto w-25 mt-3">
       <h3>Please Login!!</h3>
-      <Form>
+      <Form onSubmit={handleManualLogin}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
@@ -53,6 +78,7 @@ const Login = () => {
             required
           />
         </Form.Group>
+        <p className="text-danger">{error}</p>
 
         <Button variant="info" type="submit">
           Login
@@ -70,7 +96,11 @@ const Login = () => {
           <FaGoogle></FaGoogle> Login with Google
         </Button>
 
-        <Button onClick={handleGithubSignIn} variant="outline-secondary">
+        <Button
+          onClick={handleGithubSignIn}
+          className="ms-2"
+          variant="outline-secondary"
+        >
           <FaGithub></FaGithub> Login with Github
         </Button>
       </div>

@@ -4,7 +4,6 @@ import {
   Button,
   Container,
   Nav,
-  NavDropdown,
   Navbar,
   Overlay,
   OverlayTrigger,
@@ -14,7 +13,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider";
 
 const NavigationBar = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut, loading } = useContext(AuthContext);
 
   const handleLogOut = () => {
     logOut()
@@ -50,15 +49,16 @@ const NavigationBar = () => {
               <Link to="/login">
                 <button className="ms-2">login</button>
               </Link> */}
+
               {user && (
                 <OverlayTrigger
                   placement="left"
-                  overlay={<Tooltip>{user.displayName}</Tooltip>}
+                  overlay={<Tooltip>{user?.displayName}</Tooltip>}
                 >
                   <img
                     style={{ height: "60px" }}
                     className="rounded-circle me-2"
-                    src={user.photoURL}
+                    src={user?.photoURL}
                   ></img>
                 </OverlayTrigger>
               )}

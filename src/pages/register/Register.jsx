@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
+  const { createUser, auth, error, setError } = useContext(AuthContext);
+
   const handleRegister = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -11,8 +15,39 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(name, photoUrl, email, password);
+
+    if (password.length < 6) {
+      setError("Please at least 6 characters in your password");
+      return;
+    }
+
+    createUser(email, password)
+      .then((result) => {
+        const createdUser = result.user;
+        console.log(createdUser);
+        setError("");
+        form.reset();
+        updateUserData(createdUser, name, photoUrl);
+      })
+      .catch((error) => {
+        console.log(error.message);
+        // setError(error.message);
+      });
   };
 
+  const updateUserData = (user, name, photoUrl) => {
+    updateProfile(user, {
+      displayName: name,
+      photoURL: photoUrl,
+    })
+      .then(() => {
+        console.log("user profile updated");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+  //   https://lh3.googleusercontent.com/a/AGNmyxYQ4yk1ww2I8DCkij8tOGvfU7kPtLCpucz9ddgFaw=s96-c"
   return (
     <Container className="w-25 mx-auto my-3">
       <h3>Please Register!!!</h3>
@@ -54,6 +89,7 @@ const Register = () => {
             required
           />
         </Form.Group>
+        <p className="text-danger">{error}</p>
 
         <Button variant="info" type="submit">
           Register
