@@ -1,5 +1,5 @@
 import React from "react";
-import quisine from "../../../assets/first-slide.jpg";
+import quisine from "../../../../assets/first-slide.jpg";
 import { Container } from "react-bootstrap";
 
 const Banner = () => {
