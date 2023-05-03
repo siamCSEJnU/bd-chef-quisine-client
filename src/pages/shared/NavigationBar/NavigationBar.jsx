@@ -5,8 +5,13 @@ import { Link } from "react-router-dom";
 
 const NavigationBar = () => {
   return (
-    <Container className="mt-3">
-      <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+    <Container className="mt-3 bg-secondary p-2 ">
+      <Navbar
+        collapseOnSelect
+        expand="lg"
+        bg="bg-secondary"
+        variant="bg-secondary"
+      >
         <Container>
           <Navbar.Brand href="#home" className="fw-bold">
             BD QUISINE
@@ -21,7 +26,9 @@ const NavigationBar = () => {
             </Nav>
             <Nav>
               <li>userProfile</li>
-              <button className="ms-2">login</button>
+              <Link to="/login">
+                <button className="ms-2">login</button>
+              </Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
