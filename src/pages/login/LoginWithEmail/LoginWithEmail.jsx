@@ -3,7 +3,7 @@ import { Button, Container, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 
-const Login = () => {
+const LoginWithEmail = () => {
   return (
     <Container className="mx-auto w-25 mt-3">
       <h3>Please Login!!</h3>
@@ -40,7 +40,7 @@ const Login = () => {
       </Form>
       <h4 className="mt-4">Or,</h4>
       <div>
-        <Button variant="outline-primary">
+        <Button variant="outline-info">
           <FaGoogle></FaGoogle> Login with Google
         </Button>{" "}
         <Button variant="outline-secondary">
@@ -51,4 +51,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginWithEmail;
