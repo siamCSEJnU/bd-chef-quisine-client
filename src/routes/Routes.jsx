@@ -5,6 +5,7 @@ import Main from "../layouts/Main";
 import Banner from "../pages/home/Banner/Banner";
 import Login from "../pages/login/Login";
 import Register from "../pages/register/Register";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
         element: <Register></Register>,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <ErrorPage></ErrorPage>,
   },
 ]);
 
