@@ -1,9 +1,35 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaGithub, FaGoogle } from "react-icons/fa";
+import { AuthContext } from "../../provider/AuthProvider";
 
-const LoginWithEmail = () => {
+const Login = () => {
+  const { GithubSignIn, GoogleSignIn, user, setUser } = useContext(AuthContext);
+
+  const handleGoogleSignIn = () => {
+    GithubSignIn()
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        setUser(loggedUser);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  const handleGithubSignIn = () => {
+    GoogleSignIn()
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        setUser(loggedUser);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <Container className="mx-auto w-25 mt-3">
       <h3>Please Login!!</h3>
@@ -40,15 +66,16 @@ const LoginWithEmail = () => {
       </Form>
       <h4 className="mt-4">Or,</h4>
       <div>
-        <Button variant="outline-info">
+        <Button onClick={handleGoogleSignIn} variant="outline-info">
           <FaGoogle></FaGoogle> Login with Google
-        </Button>{" "}
-        <Button variant="outline-secondary">
+        </Button>
+
+        <Button onClick={handleGithubSignIn} variant="outline-secondary">
           <FaGithub></FaGithub> Login with Github
-        </Button>{" "}
+        </Button>
       </div>
     </Container>
   );
 };
 
-export default LoginWithEmail;
+export default Login;

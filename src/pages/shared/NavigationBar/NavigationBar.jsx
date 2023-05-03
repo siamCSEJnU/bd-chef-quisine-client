@@ -1,9 +1,21 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
-import { Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
+import React, { useContext } from "react";
+import { Button, Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../provider/AuthProvider";
 
 const NavigationBar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        console.log("sucessfull logOut");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <Container className="mt-3 bg-secondary p-2 ">
       <Navbar
@@ -25,10 +37,26 @@ const NavigationBar = () => {
               <li>Blog</li>
             </Nav>
             <Nav>
-              <li>userProfile</li>
+              {/* <li>userProfile</li>
               <Link to="/login">
                 <button className="ms-2">login</button>
-              </Link>
+              </Link> */}
+              {user && (
+                <img
+                  style={{ height: "60px" }}
+                  className="rounded-circle me-2"
+                  src={user.photoURL}
+                ></img>
+              )}
+              {user ? (
+                <Button variant="info" onClick={handleLogOut}>
+                  Sign Out
+                </Button>
+              ) : (
+                <Link to="/login">
+                  <Button variant="info">Login</Button>
+                </Link>
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>
