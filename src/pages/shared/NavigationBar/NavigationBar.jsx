@@ -9,7 +9,7 @@ import {
   OverlayTrigger,
   Tooltip,
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider";
 
 const NavigationBar = () => {
@@ -33,7 +33,7 @@ const NavigationBar = () => {
         variant="bg-secondary"
       >
         <Container>
-          <Navbar.Brand href="#home" className="fw-bold">
+          <Navbar.Brand href="#home" className="fw-bold fs-2">
             BD QUISINE
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -41,8 +41,26 @@ const NavigationBar = () => {
             <Nav className="mx-auto">
               {/* <Nav.Link href="#features">Home</Nav.Link>
               <Nav.Link href="#pricing">Blog</Nav.Link> */}
-              <li className="me-2">Home</li>
-              <li>Blog</li>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-decoration-none text-light fw-semibold fs-5"
+                    : "text-decoration-none text-black fw-semibold fs-5"
+                }
+              >
+                <li className="me-5">Home</li>
+              </NavLink>
+              <NavLink
+                to="/blogs"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-decoration-none text-light fw-semibold fs-5"
+                    : "text-decoration-none text-black fw-semibold fs-5"
+                }
+              >
+                <li>Blog</li>
+              </NavLink>
             </Nav>
             <Nav>
               {/* <li>userProfile</li>
