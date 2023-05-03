@@ -21,7 +21,9 @@ const Footer = () => {
               </ul>
             </Col>
             <Col sm={4}>
-              <h4>Subscribe to get important updates</h4>
+              <h4>
+                Subscribe to get <br /> important updates
+              </h4>
               <Form.Control
                 type="email"
                 placeholder="your email"

@@ -1,6 +1,15 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext } from "react";
-import { Button, Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
+import {
+  Button,
+  Container,
+  Nav,
+  NavDropdown,
+  Navbar,
+  Overlay,
+  OverlayTrigger,
+  Tooltip,
+} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider";
 
@@ -42,11 +51,16 @@ const NavigationBar = () => {
                 <button className="ms-2">login</button>
               </Link> */}
               {user && (
-                <img
-                  style={{ height: "60px" }}
-                  className="rounded-circle me-2"
-                  src={user.photoURL}
-                ></img>
+                <OverlayTrigger
+                  placement="left"
+                  overlay={<Tooltip>{user.displayName}</Tooltip>}
+                >
+                  <img
+                    style={{ height: "60px" }}
+                    className="rounded-circle me-2"
+                    src={user.photoURL}
+                  ></img>
+                </OverlayTrigger>
               )}
               {user ? (
                 <Button variant="info" onClick={handleLogOut}>
