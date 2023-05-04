@@ -6,7 +6,7 @@ import { FcRating } from "react-icons/fc";
 const Kitchen = ({ kitchens }) => {
   console.log(kitchens);
   return (
-    <Container>
+    <Container className="py-3">
       <Row xs={2} md={4} className="g-4">
         {kitchens.map((kitchen) => (
           <Col key={kitchen.id}>

@@ -1,8 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext } from "react";
-import vintage1 from "../../../assets/vintage1.jpg";
-import vintage2 from "../../../assets/vintage2.jpg";
-import vintage3 from "../../../assets/vintage3.jpg";
+import vintage3 from "../../../assets/vintage/vintage3.jpg";
 import {
   Button,
   Container,
