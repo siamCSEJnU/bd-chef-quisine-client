@@ -1,37 +1,10 @@
 import React, { useRef } from "react";
 import { Button, Container } from "react-bootstrap";
-import { PDFDownloadLink, Page, Text, Document } from "@react-pdf/renderer";
-const MyDocument = ({ content }) => (
-  <Document>
-    <Page>
-      <Text>{content}</Text>
-    </Page>
-  </Document>
-);
-
-const generatePdf = (content) => {
-  // Return a button that triggers the PDF download when clicked
-  return (
-    <PDFDownloadLink
-      document={<MyDocument content={content} />}
-      fileName="blogs.pdf"
-    >
-      {({ loading, blob, url, error }) =>
-        loading ? (
-          "Generating PDF..."
-        ) : (
-          <div className="text-center">
-            <Button>Download PDF</Button>
-          </div>
-        )
-      }
-    </PDFDownloadLink>
-  );
-};
+import { FaArrowDown } from "react-icons/fa";
+import Pdf from "react-to-pdf";
 
 const Blogs = () => {
   const containerRef = useRef();
-  // const content = "This is the content that will be in the PDF.";
 
   return (
     <Container className="my-5" ref={containerRef}>
@@ -134,8 +107,15 @@ const Blogs = () => {
       <p className="mt-5 fst-italic text-secondary text-center">
         To download the blogs click below{" "}
       </p>
-
-      {generatePdf(containerRef.current?.innerHTML)}
+      <div className="text-center  ">
+        <Pdf targetRef={containerRef} filename="Blogs.pdf">
+          {({ toPdf }) => (
+            <Button onClick={toPdf}>
+              <FaArrowDown></FaArrowDown> Download PDF
+            </Button>
+          )}
+        </Pdf>
+      </div>
     </Container>
   );
 };

@@ -33,7 +33,7 @@ const NavigationBar = () => {
         variant="bg-secondary"
       >
         <Container>
-          <Navbar.Brand href="#home" className="fw-bold fs-2">
+          <Navbar.Brand href="#home" className="fw-bold text-info fs-2">
             BD QUISINE
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -74,7 +74,7 @@ const NavigationBar = () => {
                   overlay={<Tooltip>{user?.displayName}</Tooltip>}
                 >
                   <img
-                    // style={{ height: "60px" }}
+                    style={{ height: "60px" }}
                     className="rounded-circle me-2"
                     src={user?.photoURL}
                   ></img>
@@ -83,7 +83,7 @@ const NavigationBar = () => {
               {user ? (
                 <Button
                   variant="info"
-                  style={{ height: "60px" }}
+                  // style={{ height: "60px" }}
                   onClick={handleLogOut}
                 >
                   Sign Out

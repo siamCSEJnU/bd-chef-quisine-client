@@ -11,7 +11,7 @@ const Chefs = () => {
       .then((data) => setChefs(data));
   }, []);
   return (
-    <Container className="my-5">
+    <Container className="my-3">
       <LazyLoad className="d-flex align-items-center gap-4 ">
         <img src="https://i.postimg.cc/NFg6mvPZ/lazy.jpg" />
         <h3 className="text-success fs-1">Wellcome Foodie!!</h3>
