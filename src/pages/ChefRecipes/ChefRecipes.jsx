@@ -22,8 +22,8 @@ const ChefRecipes = () => {
         <div className="flex-grow-1">
           <h4 className="text-black fw-bold fs-1 text-center">{chef_name}</h4>
           <p className="text-center text-success fst-italic">
-            {bio.designation} <br />
-            {bio.location}{" "}
+            {bio?.designation} <br />
+            {bio?.location}{" "}
           </p>
           <ul className="list-unstyled fs-4 fw-semibold text-secondary ">
             <li>Total Recipies : {number_of_recipes}</li>

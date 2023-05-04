@@ -12,7 +12,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Recipe = ({ recipes }) => {
-  const [favorites, setFavorites] = useState(recipes.map((recipe) => false));
+  const [favorites, setFavorites] = useState(recipes?.map((recipe) => false));
 
   const handleFavorites = (index) => {
     toast.success("This recipe is your favorite!");
@@ -27,14 +27,16 @@ const Recipe = ({ recipes }) => {
         <Row xs={1} md={3} className="g-4">
           {recipes.map((recipe, index) => (
             <Col key={recipe.id}>
-              <Card className="p-2 p-2 bg-light bg-gradient shadow border border-0">
+              <Card className="p-2 bg-light bg-gradient shadow border border-0">
                 <Card.Img
                   variant="top"
                   src={recipe.recipe_img}
                   style={{ height: "200px", objectFit: "cover" }}
                 />
                 <Card.Body>
-                  <Card.Title className="fs-3">{recipe.name}</Card.Title>
+                  <Card.Title className="fs-3 text-success">
+                    {recipe.name}
+                  </Card.Title>
                   <Card.Text className="text-secondary">
                     <span className="fs-5 text-black fw-semibold">
                       {" "}

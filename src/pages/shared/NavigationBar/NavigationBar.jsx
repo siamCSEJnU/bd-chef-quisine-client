@@ -49,7 +49,27 @@ const NavigationBar = () => {
                     : "text-decoration-none text-black fw-semibold fs-5"
                 }
               >
-                <li className="me-5">Home</li>
+                <li className="me-3">Home</li>
+              </NavLink>
+              <NavLink
+                to="/about"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-decoration-none text-light fw-semibold fs-5"
+                    : "text-decoration-none text-black fw-semibold fs-5"
+                }
+              >
+                <li className="me-3">About</li>
+              </NavLink>
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-decoration-none text-light fw-semibold fs-5"
+                    : "text-decoration-none text-black fw-semibold fs-5"
+                }
+              >
+                <li className="me-3">Contact</li>
               </NavLink>
               <NavLink
                 to="/blogs"

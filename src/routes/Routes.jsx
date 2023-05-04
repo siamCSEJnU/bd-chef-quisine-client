@@ -10,6 +10,8 @@ import Home from "../pages/home/home/Home/Home";
 import Blogs from "../pages/blogs/Blogs";
 import ChefRecipes from "../pages/ChefRecipes/ChefRecipes";
 import PrivateRoute from "./PrivateRoute";
+import Contact from "../pages/Contact/Contact";
+import About from "../pages/About/About";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -27,6 +29,14 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>,
+      },
+      {
+        path: "/about",
+        element: <About></About>,
       },
       {
         path: "/blogs",
