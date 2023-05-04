@@ -6,7 +6,7 @@ import LazyLoad from "react-lazyload";
 const Chefs = () => {
   const [chefs, setChefs] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/chefs")
+    fetch("https://bd-chef-quisine-server.vercel.app/chefs")
       .then((res) => res.json())
       .then((data) => setChefs(data));
   }, []);

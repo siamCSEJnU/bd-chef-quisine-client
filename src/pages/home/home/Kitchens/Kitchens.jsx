@@ -5,7 +5,7 @@ import Kitchen from "../Kitchen/Kitchen";
 const Kitchens = () => {
   const [kitchens, setKitchens] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/kitchen")
+    fetch("https://bd-chef-quisine-server.vercel.app/kitchen")
       .then((res) => res.json())
       .then((data) => setKitchens(data));
   }, []);

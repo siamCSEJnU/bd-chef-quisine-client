@@ -5,7 +5,7 @@ import TraditionalItems from "../TraditionalItems/TraditionalItems";
 const Traditional = () => {
   const [items, setItems] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/traditional")
+    fetch("https://bd-chef-quisine-server.vercel.app/traditional")
       .then((res) => res.json())
       .then((data) => setItems(data));
   }, []);

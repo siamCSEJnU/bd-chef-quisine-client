@@ -1,5 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext } from "react";
+import vintage1 from "../../../assets/vintage1.jpg";
+import vintage2 from "../../../assets/vintage2.jpg";
+import vintage3 from "../../../assets/vintage3.jpg";
 import {
   Button,
   Container,
@@ -33,8 +36,14 @@ const NavigationBar = () => {
         variant="bg-secondary"
       >
         <Container>
-          <Navbar.Brand href="#home" className="fw-bold text-info fs-2">
-            BD QUISINE
+          <Navbar.Brand href="#home">
+            <img
+              style={{ height: "100px" }}
+              className="rounded-circle"
+              src={vintage3}
+              alt=""
+            />
+            <span className="fw-bold text-info fs-2 ms-2">BD QUISINE</span>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
@@ -45,7 +54,7 @@ const NavigationBar = () => {
                 to="/"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-decoration-none text-light fw-semibold fs-5"
+                    ? "text-decoration-none text-info fw-semibold fs-5"
                     : "text-decoration-none text-black fw-semibold fs-5"
                 }
               >
@@ -55,7 +64,7 @@ const NavigationBar = () => {
                 to="/about"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-decoration-none text-light fw-semibold fs-5"
+                    ? "text-decoration-none text-info fw-semibold fs-5"
                     : "text-decoration-none text-black fw-semibold fs-5"
                 }
               >
@@ -65,7 +74,7 @@ const NavigationBar = () => {
                 to="/contact"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-decoration-none text-light fw-semibold fs-5"
+                    ? "text-decoration-none text-info fw-semibold fs-5"
                     : "text-decoration-none text-black fw-semibold fs-5"
                 }
               >
@@ -75,7 +84,7 @@ const NavigationBar = () => {
                 to="/blogs"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-decoration-none text-light fw-semibold fs-5"
+                    ? "text-decoration-none text-info fw-semibold fs-5"
                     : "text-decoration-none text-black fw-semibold fs-5"
                 }
               >
