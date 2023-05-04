@@ -27,7 +27,7 @@ const Recipe = ({ recipes }) => {
         <Row xs={1} md={3} className="g-4">
           {recipes.map((recipe, index) => (
             <Col key={recipe.id}>
-              <Card className="p-2">
+              <Card className="p-2 p-2 bg-light bg-gradient shadow border border-0">
                 <Card.Img
                   variant="top"
                   src={recipe.recipe_img}

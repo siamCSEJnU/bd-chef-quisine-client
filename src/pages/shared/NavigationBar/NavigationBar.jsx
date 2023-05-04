@@ -62,7 +62,7 @@ const NavigationBar = () => {
                 <li>Blog</li>
               </NavLink>
             </Nav>
-            <Nav>
+            <Nav className="d-flex align-items-center gap-2">
               {/* <li>userProfile</li>
               <Link to="/login">
                 <button className="ms-2">login</button>
@@ -74,14 +74,18 @@ const NavigationBar = () => {
                   overlay={<Tooltip>{user?.displayName}</Tooltip>}
                 >
                   <img
-                    style={{ height: "60px" }}
+                    // style={{ height: "60px" }}
                     className="rounded-circle me-2"
                     src={user?.photoURL}
                   ></img>
                 </OverlayTrigger>
               )}
               {user ? (
-                <Button variant="info" onClick={handleLogOut}>
+                <Button
+                  variant="info"
+                  style={{ height: "60px" }}
+                  onClick={handleLogOut}
+                >
                   Sign Out
                 </Button>
               ) : (

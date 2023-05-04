@@ -19,7 +19,7 @@ const ChefCards = ({ chefs }) => {
       <Row xs={1} md={2} lg={3} className="g-4">
         {chefs.map((chef) => (
           <Col key={chef.id}>
-            <Card className="p-2">
+            <Card className="p-2 bg-light shadow border border-0">
               <Card.Img
                 variant="top"
                 src={chef.chef_img}
@@ -33,7 +33,7 @@ const ChefCards = ({ chefs }) => {
                   Number of Recipes: {chef.number_of_recipes}
                   <br />
                   Likes: {chef.likes}{" "}
-                  <AiFillLike className="text-primary"></AiFillLike>
+                  <AiFillLike className="text-primary fs-5"></AiFillLike>
                 </Card.Text>
                 <Link to={`/${chef.id}`}>
                   <Button variant="info">

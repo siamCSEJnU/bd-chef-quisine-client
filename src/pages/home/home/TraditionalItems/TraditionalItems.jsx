@@ -8,7 +8,7 @@ const TraditionalItems = ({ items }) => {
       <Row xs={2} md={4} className="g-4">
         {items.map((item) => (
           <Col key={item.id}>
-            <Card className="p-2">
+            <Card className="p-2 bg-light bg-gradient shadow border border-0">
               <Card.Img
                 variant="top"
                 src={item.item_img}
@@ -17,7 +17,8 @@ const TraditionalItems = ({ items }) => {
               <Card.Body>
                 <Card.Title>{item.item_name}</Card.Title>
                 <Card.Text className="text-secondary">
-                  Likes: {item.likes} <AiFillLike></AiFillLike>
+                  Likes: {item.likes}{" "}
+                  <AiFillLike className="text-primary fs-5"></AiFillLike>
                 </Card.Text>
               </Card.Body>
             </Card>
