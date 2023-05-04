@@ -8,7 +8,7 @@ const ErrorPage = () => {
       className="d-flex justify-content-center align-items-center"
       style={{ height: "100vh" }}
     >
-      <img src={error} alt="error" style={{ height: "700px" }} />
+      <img src={error} alt="error" style={{ height: "500px" }} />
     </Container>
   );
 };

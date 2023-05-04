@@ -32,7 +32,7 @@ const Footer = () => {
               <Button variant="info">Subscribe</Button>
             </Col>
             <Col sm={4}>
-              <div className="ps-5">
+              <div>
                 <h4>Contact Us</h4>
                 <ul className="list-unstyled">
                   <li>Phone : +0096790639</li>
